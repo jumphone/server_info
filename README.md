@@ -15,9 +15,7 @@ server_info
 
 
 
-    wget https://repo.mysql.com//mysql80-community-release-el7-1.noarch.rpm
-    rpm -ivh mysql80-community-release-el7-1.noarch.rpm
-    
+   
     yum install httpd -y
     yum -y install mod_ssl
     yum install openssl-devel -y
@@ -27,3 +25,14 @@ server_info
     yum install python-devel python3-devel -y    
     pip3 install uwsgi    
     yum install nginx -y
+
+    wget https://repo.mysql.com//mysql80-community-release-el7-1.noarch.rpm
+    rpm -ivh mysql80-community-release-el7-1.noarch.rpm
+    
+    yum -y install mysql mysql-server --nogpgcheck
+
+    systemctl start mysqld
+    grep 'temporary password' /var/log/mysqld.log
+    mysql -uroot -p'pwd'
+
+    
