@@ -4,6 +4,7 @@ server_info
     yum install httpd -y
     yum -y install mod_ssl
     yum install openssl-devel -y
+    yum install mariadb-devel -y
     
     yum install epel-release -y
     yum install python-devel python3-devel -y    
