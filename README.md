@@ -51,3 +51,9 @@ server_info
     IDENTIFIED WITH mysql_native_password
     BY 'pw';
 
+    systemctl stop httpd.service
+    systemctl start nginx.service
+
+    #djangoblog/settings.py
+    USE_TZ = False
+    
