@@ -8,3 +8,4 @@ server_info
     yum install bzip2-devel -y
     yum install xz-devel -y
     yum install pcre2-devel -y
+    yum install java-devel -y
