@@ -26,6 +26,9 @@ server_info
     pip3 install uwsgi    
     yum install nginx -y
 
+    # https://blog.csdn.net/qq_56905650/article/details/131300819
+    # CentOS安装配置MySQL
+    
     wget https://repo.mysql.com//mysql80-community-release-el7-1.noarch.rpm
     rpm -ivh mysql80-community-release-el7-1.noarch.rpm
     
@@ -35,4 +38,10 @@ server_info
     grep 'temporary password' /var/log/mysqld.log
     mysql -uroot -p'pwd'
 
+    # https://chrisshennan.com/blog/fixing-authentication-plugin-cachingsha2password-cannot-be-loaded-errors
+    # Fixing "Authentication plugin 'caching_sha2_password' cannot be loaded" errors
     
+    vi /etc/my.cnf
+    default_authentication_plugin=mysql_native_password
+
+    systemctl restart mysqld
