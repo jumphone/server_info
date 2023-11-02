@@ -45,3 +45,8 @@ server_info
     default_authentication_plugin=mysql_native_password
 
     systemctl restart mysqld
+
+    ALTER USER user
+    IDENTIFIED WITH mysql_native_password
+    BY 'pw';
+
