@@ -46,7 +46,8 @@ server_info
 
     systemctl restart mysqld
 
-    ALTER USER user
+    #https://stackoverflow.com/questions/49963383/authentication-plugin-caching-sha2-password
+    ALTER USER root@'localhost'
     IDENTIFIED WITH mysql_native_password
     BY 'pw';
 
