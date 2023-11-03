@@ -57,7 +57,8 @@ HTTP
     USE_TZ = False
 
 FTP   
-
+    vi /etc/selinux/config
+    
     # https://baijiahao.baidu.com/s?id=1773925116959727959&wfr=spider&for=pc
     yum install -y vsftpd
     systemctl enable vsftpd.service
@@ -77,7 +78,7 @@ FTP
     firewall-cmd --permanent --zone=public --add-port=50010-50020/tcp
     firewall-cmd --permanent --zone=public --add-port=80/tcp
     firewall-cmd --permanent --zone=public --add-port=9021/tcp
-    firewall-cmd --permanent --zone=public --add-port=21/tcp
+    firewall-cmd --permanent --zone=public --add-port=20-21/tcp
     firewall-cmd --reload
     firewall-cmd --zone=public --list-ports
 
