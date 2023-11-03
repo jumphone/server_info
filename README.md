@@ -81,7 +81,7 @@ FTP
     firewall-cmd --reload
     firewall-cmd --zone=public --list-ports
 
-
+    ~/local/bin/pip3.8 install django-ftpserver
 
 
 
