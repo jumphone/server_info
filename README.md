@@ -60,6 +60,9 @@ FTP
     vi /etc/selinux/config
     
     # https://baijiahao.baidu.com/s?id=1773925116959727959&wfr=spider&for=pc
+
+    yum install -y ftp
+    
     yum install -y vsftpd
     systemctl enable vsftpd.service
     systemctl start vsftpd.service
