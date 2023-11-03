@@ -2,6 +2,7 @@
 server_info
 
     
+R
 
     yum install epel-release -y
     yum install gcc-gfortran -y
@@ -13,9 +14,7 @@ server_info
     yum install pcre2-devel -y
     yum install java-devel -y
 
-
-
-   
+HTTP   
     yum install httpd -y
     yum -y install mod_ssl
     yum install openssl-devel -y
@@ -56,4 +55,38 @@ server_info
 
     #djangoblog/settings.py
     USE_TZ = False
+
+FTP   
+
+    # https://baijiahao.baidu.com/s?id=1773925116959727959&wfr=spider&for=pc
+    yum install -y vsftpd
+    systemctl enable vsftpd.service
+    systemctl start vsftpd.service
+    netstat -antup | grep ftp
     
+    adduser -d /home/ftp01 ftp01
+    mkdir /var/ftp/ftp01
+    touch /var/ftp/ftp01/testfile.txt
+    chown -R ftp01:ftp01 /var/ftp/ftp01
+
+    vi /etc/vsftpd/vsftpd.conf
+    systemctl restart vsftpd.service
+
+    firewall-cmd --list-all
+    firewall-cmd --permanent  --zone=public --add-service=ftp
+    firewall-cmd --permanent --zone=public --add-port=50010-50020/tcp
+    firewall-cmd --permanent --zone=public --add-port=80/tcp
+    firewall-cmd --permanent --zone=public --add-port=9021/tcp
+    firewall-cmd --permanent --zone=public --add-port=21/tcp
+    firewall-cmd --reload
+    firewall-cmd --zone=public --list-ports
+
+
+
+
+
+
+
+
+
+
